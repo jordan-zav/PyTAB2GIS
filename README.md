@@ -1,5 +1,6 @@
 # PyTAB2GIS
 ![PyTAB2GIS GUI](docs/gui_screenshot.png)
+
 **PyTAB2GIS** is a lightweight desktop application that converts structured Excel tables into GIS-ready vector formats such as **Shapefile (SHP)** and **DXF**.
 
 It is designed for **geological, environmental, and engineering workflows**, where spatial data are commonly provided in tabular form (e.g. survey coordinates, field measurements, technical reports) and must be transformed into valid GIS geometries quickly and reliably.
