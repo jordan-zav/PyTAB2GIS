@@ -131,7 +131,7 @@ Jordan Zavaleta
 Geological Engineering Undergraduate Student
 Universidad Nacional de Ingeniería (UNI), Peru
 
-📧 Contact: jordanzr10@gmail.com
+📧 Contact: jordanzav@gisgeo.dev
 
 📌 Disclaimer
 This software is provided as is, without warranty of any kind.
