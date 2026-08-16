@@ -1,14 +1,31 @@
-*.tar
-*.tar.*
-*.jar
-*.exe
-*.msi
-*.deb
-*.zip
-*.tgz
-*.log
-*.log.*
-*.sig
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+build/
+dist/
 
-pkg/
-src/
+# Generated GIS deliverables
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.gpkg
+*.dxf
+
+# Local working/reference files
+/Captura de pantalla*
+/Help commands.docx
+/estructura.txt
+
+# OS/editor files
+desktop.ini
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytab2gis"
+version = "0.0.0"
+description = "Convert semi-structured tabular data into GIS polygon geometries"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas",
+    "geopandas",
+    "shapely",
+    "pyproj",
+    "openpyxl",
+    "pytesseract",
+    "pillow",
+    "click"
+]
+
+[project.scripts]
+pytab2gis = "pytab2gis.cli:main"

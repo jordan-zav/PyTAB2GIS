@@ -1,142 +1,56 @@
 # PyTAB2GIS
-![PyTAB2GIS GUI](docs/gui_screenshot.png)
 
-**PyTAB2GIS** is a lightweight desktop application that converts structured Excel tables into GIS-ready vector formats such as **Shapefile (SHP)** and **DXF**.
+**PyTAB2GIS** is a Python-based tool for converting semi-structured tabular data
+(Excel spreadsheets or table captures) into valid GIS polygon geometries.
 
-It is designed for **geological, environmental, and engineering workflows**, where spatial data are commonly provided in tabular form (e.g. survey coordinates, field measurements, technical reports) and must be transformed into valid GIS geometries quickly and reliably.
+The software is designed for mining, environmental, and engineering workflows
+where spatial data are commonly delivered as tables rather than geospatial files.
 
-PyTAB2GIS provides a **graphical user interface (GUI)** and requires **no programming knowledge**, making it suitable for both academic and professional use.
-
----
-
-
-## ⚖️ License (Dual Licensing)
-
-This project is distributed under a **Dual Licensing** model:
-
-1. **Open Source Use (GNU GPLv3):** You can use, study, modify, and redistribute this software for free, provided that any modified version or derivative work is also 100% open source under the GNU GPLv3 license.
-2. **Commercial / Private Use (Commercial License):** If you wish to integrate this code into proprietary, closed-source, or commercial software (without the obligation to open your own source code under the GPLv3), you must acquire an exclusive commercial license. Please contact the author to negotiate terms.
-
-For more details, see the [LICENSE](LICENSE) file.
+PyTAB2GIS emphasizes **explicit CRS definition**, **reproducibility**, and
+**robust handling of messy real-world tables**.
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- Import spatial data directly from Excel files (`.xlsx`)
-- Automatic geometry construction from coordinate tables:
-  - **Polygons** (≥ 3 vertices)
-  - **Lines** (2 vertices)
-- Support for:
-  - Single-feature tables
-  - Multiple features using a component/grouping column
-- Robust handling of:
-  - Merged cells
-  - Empty or partially filled rows
-- Explicit **Coordinate Reference System (CRS)** definition using EPSG codes
-- Export formats:
-  - ESRI Shapefile (SHP)
-  - DXF (AutoCAD-compatible)
-- Clean and minimal desktop GUI
-- Standalone Windows executable available
+- Convert Excel tables directly into GIS polygons (Shapefile)
+- Handle multiple figures and tables within a single sheet
+- Robust detection of coordinate columns (X/Y, Easting/Northing, etc.)
+- Explicit, user-defined CRS (no automatic inference)
+- Geometry validation and sanity checks
+- Command-line interface (CLI) and graphical user interface (GUI)
+- Outputs packaged as ZIP for institutional delivery
 
 ---
 
-## 🧭 Typical Use Cases
+## Why PyTAB2GIS?
 
-- Geological and structural mapping
-- Mining and exploration projects
-- Environmental and geotechnical studies
-- Engineering layouts derived from survey tables
-- Academic GIS exercises and teaching
-- Rapid preprocessing of spatial datasets for QGIS, ArcGIS, or AutoCAD
+In many mining and environmental projects, spatial features are delivered as:
 
----
+- Excel spreadsheets
+- copied tables from reports
+- scanned or manually prepared coordinate tables
 
-## 🖥️ Graphical Interface Workflow
+These formats lack:
+- embedded CRS information
+- consistent structure
+- GIS-ready geometry
 
-Using PyTAB2GIS through the GUI involves the following steps:
-
-1. Select an Excel file containing coordinate data
-2. Choose the corresponding columns for:
-   - X (Easting)
-   - Y (Northing)
-   - Vertex order
-   - Optional component/group column
-3. Specify the Coordinate Reference System using an EPSG code
-4. Select the desired export format
-5. Run the conversion and generate GIS-ready files
-
-The resulting files can be opened directly in standard GIS or CAD software.
+PyTAB2GIS bridges this gap by providing a **deterministic and auditable pipeline**
+from tables to GIS-ready polygon data.
 
 ---
 
-## 📦 Standalone Executable (Windows)
+## Workflow Overview
 
-A precompiled Windows executable is provided in the **Releases** section of this repository.
-
-- No Python or Conda installation required
-- All dependencies are bundled
-- Simply download, extract, and run `PyTAB2GIS.exe`
-
-This option is recommended for end users who only need the tool, not the source code.
-
----
-
-## 🧑‍💻 Running from Source (Optional)
-
-For users who wish to run or extend the source code:
+Install the project in a Python environment and run either the command-line entry point or the desktop interface:
 
 ```bash
-git clone https://github.com/jordan-zav/PyTAB2GIS
-cd PyTAB2GIS
+python -m pip install -e .
+pytab2gis --help
 python -m pytab2gis.gui.main_gui
-A Conda-based environment is recommended due to GIS dependencies.
-
-📁 Project Structure
-text
-Copiar código
-pytab2gis/
-├─ config/      # Configuration models
-├─ core/        # Main processing pipelines
-├─ crs/         # Coordinate reference system handling
-├─ export/      # SHP and DXF exporters
-├─ figures/     # Geometry construction logic
-├─ geometry/    # Geometry validation and checks
-├─ gui/         # Tkinter-based GUI
-├─ io/          # Excel readers and input handling
-├─ table/       # Table utilities
-├─ utils/       # Helper functions
-├─ __init__.py
-└─ cli.py       # Command-line entry point (future use)
-The modular design separates GUI logic, data processing, geometry handling, and export routines to ensure maintainability and extensibility.
-
-⚖️ License
-This project is released under the MIT License.
-
-You are free to:
-
-Use the software
-
-Modify it
-
-Integrate it into larger pipelines
-
-Redistribute it, including for commercial purposes
-
-A non-binding citation request is included in the LICENSE file for academic and technical use.
-
-👤 Author
-Jordan Zavaleta
-Geological Engineering Undergraduate Student
-Universidad Nacional de Ingeniería (UNI), Peru
-
-📧 Contact: jordanzav@gisgeo.dev
-
-📌 Disclaimer
-This software is provided as is, without warranty of any kind.
-Users are responsible for validating results before applying them in academic, professional, or legal contexts.
+```
 
 ## License
 
-This project is licensed under the GNU GPLv3 and the Dual Licensing agreement described above. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under GNU GPLv3 with a separate commercial licensing option. See `LICENSE.txt` for the open-source license terms.
