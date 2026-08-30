@@ -169,7 +169,7 @@ class PyTAB2GIS_GUI:
 
         tk.Label(
             footer,
-            text="© MIT License",
+            text="© GNU GPLv3",
             font=("Segoe UI", 8),
             fg="#555555"
         ).grid(row=0, column=1, sticky="e")

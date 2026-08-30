@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "pytab2gis"
 version = "0.0.0"
 description = "Convert semi-structured tabular data into GIS polygon geometries"
+license = "GPL-3.0-or-later"
 requires-python = ">=3.9"
 dependencies = [
     "pandas",
