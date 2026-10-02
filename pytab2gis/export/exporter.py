@@ -16,6 +16,15 @@ def _sanitize(name: str) -> str:
     return "".join(c if c.isalnum() or c in "_-" else "_" for c in name)
 
 
+def _session_temp_parent():
+    if os.name != "nt":
+        return None
+    root = os.environ.get("DEV_RESOURCES_ROOT") or r"D:\DevResources"
+    parent = os.path.join(root, "Sessions", "PyTAB2GIS")
+    os.makedirs(parent, exist_ok=True)
+    return parent
+
+
 def _ensure_dir(path: str):
     os.makedirs(path, exist_ok=True)
 
@@ -49,7 +58,7 @@ def export_geometries(
 
     # 🔑 si es zipped, usamos un directorio temporal
     base_work_dir = (
-        tempfile.mkdtemp(prefix="pytab2gis_")
+        tempfile.mkdtemp(prefix="pytab2gis_", dir=_session_temp_parent())
         if zip_output
         else output_dir
     )
