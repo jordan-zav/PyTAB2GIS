@@ -1,3 +1,5 @@
+<p align="center"><strong>English</strong> · <a href="README.es.md">Español</a></p>
+
 <div align="center">
 
 # PyTAB2GIS
@@ -26,7 +28,7 @@ DXF outputs.
 
 ## Workflow at a glance
 
-```text
+~~~text
 Excel workbook / coordinate table
                │
                ▼
@@ -40,13 +42,13 @@ Excel workbook / coordinate table
                │
                ▼
        Optional per-figure ZIP delivery packages
-```
+~~~
 
 ## Capabilities
 
 | Area | Current support |
 | --- | --- |
-| Input | Excel `.xlsx` worksheets with coordinate and vertex columns |
+| Input | Excel <code>.xlsx</code> worksheets with coordinate and vertex columns |
 | Table handling | Column selection, multiple sheets, empty/merged-cell normalization and optional component grouping |
 | Geometry | Polygon construction, closure and basic validity checks |
 | CRS | Required user-supplied EPSG code; no silent CRS inference |
@@ -81,7 +83,7 @@ incorrectly if its CRS is wrong.
 For a reproducible geospatial environment, Conda/Miniforge is recommended
 because GDAL, Fiona and GeoPandas include compiled native dependencies.
 
-```powershell
+~~~powershell
 git clone https://github.com/jordan-zav/PyTAB2GIS.git
 cd PyTAB2GIS
 python -m venv .venv
@@ -89,16 +91,16 @@ python -m venv .venv
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m pip install -e .
-```
+~~~
 
 Tesseract is only required for experimental image/OCR work. It is not required
 for ordinary Excel conversion.
 
 ## Run the desktop interface
 
-```powershell
+~~~powershell
 python -m pytab2gis.gui.main_gui
-```
+~~~
 
 In the interface:
 
@@ -112,7 +114,7 @@ In the interface:
 
 | Output | Verification |
 | --- | --- |
-| Shapefile | Keep `.shp`, `.shx`, `.dbf`, `.prj` and related sidecars together |
+| Shapefile | Keep <code>.shp</code>, <code>.shx</code>, <code>.dbf</code>, <code>.prj</code> and related sidecars together |
 | GeoPackage | Open the polygon layer and verify its declared CRS and extent |
 | DXF | Confirm units and layer placement in the receiving CAD application |
 | ZIP | Reopen the archive and confirm that every required sidecar is present |
@@ -125,22 +127,22 @@ reference layer.
 
 | Path | Contents |
 | --- | --- |
-| `pytab2gis/io` | Workbook and experimental image readers |
-| `pytab2gis/table` | Table and column detection/normalization |
-| `pytab2gis/figures` | Figure grouping and geometry checks |
-| `pytab2gis/geometry` | Polygon construction and validation |
-| `pytab2gis/crs` | Explicit CRS definitions and presets |
-| `pytab2gis/export` | SHP, GeoPackage, DXF and ZIP output logic |
-| `pytab2gis/gui` | Tkinter desktop interface |
-| `docs` | Architecture notes, screenshot and paper outline |
-| `tests` | Example workbooks and image fixtures |
+| <code>pytab2gis/io</code> | Workbook and experimental image readers |
+| <code>pytab2gis/table</code> | Table and column detection/normalization |
+| <code>pytab2gis/figures</code> | Figure grouping and geometry checks |
+| <code>pytab2gis/geometry</code> | Polygon construction and validation |
+| <code>pytab2gis/crs</code> | Explicit CRS definitions and presets |
+| <code>pytab2gis/export</code> | SHP, GeoPackage, DXF and ZIP output logic |
+| <code>pytab2gis/gui</code> | Tkinter desktop interface |
+| <code>docs</code> | Architecture notes, screenshot and paper outline |
+| <code>tests</code> | Example workbooks and image fixtures |
 
 ## Project status
 
 The repository contains an initial public prototype and a v1.0.0 release. The
 desktop Excel workflow is the current documented path. The CLI entry point and
 automated regression suite need consolidation before a new stable release, and
-the package metadata still uses the provisional version `0.0.0`.
+the package metadata still uses the provisional version <code>0.0.0</code>.
 
 ## License and contact
 
